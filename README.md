@@ -10,12 +10,12 @@ This project involves connecting a radio to a Raspberry Pi and saving the radio'
 
 ```mermaid
 flowchart TD
-    A((Audio Source: Radio or Microphone)) -->|Analog Audio Signal| B((Raspberry Pi / Computer: arecord + lame/ffmpeg))
-    B -->|Digital MP3 File| C((Storage: MP3 File))
-    C -->|MP3 File Path| D((Speech-to-Text Engine: Whisper, Vosk, etc.))
-    D -->|Transcript (Text)| E((Transcript File))
-    E -->|Text Input| F((Local LLM: Llama, GPT4All\nTranslation & Summarization))
-    F -->|Summary/List of Requests| G((Output: Requests/Summary))
+    A[Audio Source: Radio or Microphone] -->|Analog Audio Signal| B[Raspberry Pi / Computer: arecord + lame/ffmpeg]
+    B -->|Digital MP3 File| C[Storage: MP3 File]
+    C -->|MP3 File Path| D[Speech-to-Text Engine: Whisper, Vosk, etc.]
+    D -->|Transcript (Text)| E[Transcript File]
+    E -->|Text Input| F[Local LLM: Llama, GPT4All\\nTranslation & Summarization]
+    F -->|Summary/List of Requests| G[Output: Requests/Summary]
 ```
 
 ## Step 1: Record Radio Input to MP3
