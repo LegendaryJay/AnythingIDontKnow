@@ -8,49 +8,14 @@ This project involves connecting a radio to a Raspberry Pi and saving the radio'
 
 ## System Diagram
 
-```
-┌──────────────────────────────┐
-│        Audio Source          │
-│ ────────────────┬────────── │
-│  Radio          │           │
-│  Microphone     │           │
-└─────────┬────────┘           
-          │ Analog Audio Signal
-          v
-┌──────────────────────────────┐
-│ Raspberry Pi / Computer      │
-│ ─────────────────────────── │
-│ [Audio Input: USB/3.5mm]    │
-│ [arecord + lame/ffmpeg]     │
-└─────────┬────────┘           
-          │ Digital MP3 File
-          v
-┌──────────────────────────────┐
-│   Storage (MP3 File)         │
-└─────────┬────────┘           
-          │ MP3 File Path
-          v
-┌──────────────────────────────┐
-│ Speech-to-Text Engine        │
-│ (Whisper, Vosk, etc.)        │
-└─────────┬────────┘           
-          │ Transcript (Text)
-          v
-┌──────────────────────────────┐
-│      Transcript File         │
-└─────────┬────────┘           
-          │ Text Input
-          v
-┌──────────────────────────────┐
-│ Local LLM (Llama, GPT4All)   │
-│  - Translation               │
-│  - Summarization             │
-└─────────┬────────┘           
-          │ Summary/List of Requests
-          v
-┌──────────────────────────────┐
-│  Output: Requests/Summary     │
-└──────────────────────────────┘
+```mermaid
+flowchart TD
+    A[Audio Source<br/>(Radio or Microphone)] -->|Analog Audio Signal| B[Raspberry Pi / Computer<br/>(arecord + lame/ffmpeg)]
+    B -->|Digital MP3 File| C[Storage<br/>(MP3 File)]
+    C -->|MP3 File Path| D[Speech-to-Text Engine<br/>(Whisper, Vosk, etc.)]
+    D -->|Transcript (Text)| E[Transcript File]
+    E -->|Text Input| F[Local LLM<br/>(Llama, GPT4All)<br/>Translation & Summarization]
+    F -->|Summary/List of Requests| G[Output<br/>Requests/Summary]
 ```
 
 ## Step 1: Record Radio Input to MP3
