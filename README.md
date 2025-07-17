@@ -16,26 +16,6 @@ flowchart TD
     D -->|Transcript| E[Transcript File]
     E -->|Text Input| F[Local LLM]
     F -->|Summary/List of Requests| G[Output]
-    
-    %% Node details
-    A:::desc
-    B:::desc
-    C:::desc
-    D:::desc
-    E:::desc
-    F:::desc
-    G:::desc
-    
-    classDef desc fill:#f9f,stroke:#333,stroke-width:1px;
-    
-    %% Add notes for each node
-    click A call "Radio or Microphone"
-    click B call "arecord + lame/ffmpeg"
-    click C call "MP3 File"
-    click D call "Whisper, Vosk, etc."
-    click E call "Transcript File"
-    click F call "Llama, GPT4All, Translation & Summarization"
-    click G call "Requests/Summary"
 ```
 
 ## Step 1: Record Radio Input to MP3
